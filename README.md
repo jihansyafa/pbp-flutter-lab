@@ -1,18 +1,20 @@
 # Tugas 7: Elemen Dasar Flutter
 
 Nama    : Jihan Syafa Kamila
+
 NPM     : 2106751303
+
 Kelas   : PBP-B
 
 #
 
-## Stateless Widget dan Stateful Widget
+## 📱Stateless Widget dan Stateful Widget
 
 Stateless widget, widget yang bersifat statis, adalah widget tersebut yang tidak dapat diubah setelah widget tersebut dibuat. Contoh dari stateless widget adalah Icon, IconButton, dan Text. Widget tersebut akan selalu sama mulai dari dibuat hingga aplikasi dijalankan.
 
 Stateful widget, widget yang bersifat dinamis, adalah widget yang dapat diubah setelah widget tersebut dibuat. Contoh dari stateful widget adalah Checkbox, Radio, Slider, TextField, dan Form. Jika terjadi event sebagai hasil interaksi oleh user, maka widget tersebut dapat memperbarui atau mengubah tampilannya sebagai respons dari pemicu tersebut.
 
-## Widget yang Dipakai dan Fungsinya
+## 💻Widget yang Dipakai dan Fungsinya
 
 | Widget | Fungsi |
 | ----- | ----- |
@@ -28,19 +30,19 @@ Stateful widget, widget yang bersifat dinamis, adalah widget yang dapat diubah s
 | Icon | Menampilkan icon yang diinginkan |
 | Visibility | Menampilkan atau menyembunyikan sebuah widget |
 
-## Fungsi setState()
+## 🏷️Fungsi setState()
 
 Pada program counter_7 yang telah dibuat, fungsi `setState()` mempengaruhi variabel counter. Saat tombol + ditekan, fungsi `setState()` akan dipanggil untuk memberitahu bahwa terjadi perubahan pada state sehingga method `_incrementCounter` akan dijalankan lagi. Ketika tombol - ditekan, fungsi `setState()` juga akan dipanggil untuk memberitahu bahwa terjadi perubahan pada state sehingga method `_decrementCounter` akan dijalankan lagi.
 
 Dengan demikian, `setState()` hanya dipanggil di stateful widget, yaitu ketika state dari widget berubah. Fungsi `setState()` adalah untuk memberitahu widget bahwa ada object yang berubah pada state, sehingga framework akan menjalankan build ulang pada widget tersebut.
 
-## Perbedaan const dengan final
+## ✏️Perbedaan const dengan final
 
 | const| final |
 | ----- | ----- |
 | const digunakan untuk deklarasi variabel *immutable* yang nilainya bersifat konstan dan harus sudah diketahui pada saat waktu kompilasi, artinya adalah nilai dari variabel tersebut harus sudah di berikan atau di-*assign* secara langsung. | final digunakan untuk mendeklarasi variabel *immutable* yang nilai variabelnya sudah atau belum diketahui pada saat waktu kompilasi. Nilai variabel final akan diketahui pada saat run-time. |
 
-## Widget yang Dipakai dan Fungsinya
+## ✨Implementasi Checklist
 
 ✅ **Membuat sebuah program Flutter baru dengan nama counter_7**
 
@@ -104,7 +106,7 @@ if (_counter % 2 == 0)
 
 - **Angka 0 dianggap sebagai angka genap** karena hasil modulo 0 dengan 2 adalah 0 sehingga teks yang akan ditampilkan adalah "GENAP".
 
-- **BONUS: Menyembunyikan/menghilangkan tombol - apabila counter bernilai 0**
+✅ **BONUS: Menyembunyikan/menghilangkan tombol - apabila counter bernilai 0**
 
 Apabila nilai counter adalah 0, maka tombol yang ditampilkan hanya tombol +. Namun, apabila nilai counter tidak sama dengan 0 maka tombol + dan tombol - akan ditampilkan.
 
