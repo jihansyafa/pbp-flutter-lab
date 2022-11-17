@@ -1,4 +1,5 @@
 class Budget {
+  
   static List<Budget> budgets = [];
   String judul;
   int nominal;
