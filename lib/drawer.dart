@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:counter_7/main.dart';
-import 'package:counter_7/budget.dart';
-import 'package:counter_7/dataBudget.dart';
-import 'package:counter_7/formBudget.dart';
+import 'package:counter_7/page/Budget/dataBudget.dart';
+import 'package:counter_7/page/Budget/formBudget.dart';
+import 'package:counter_7/page/Watchlist/mywatchlistpage.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -36,6 +36,15 @@ class AppDrawer extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => const DataBudgetPage()),
+              );
+            },
+          ),
+           ListTile(
+            title: const Text('My Watchlist'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const MyWatchlistPage()),
               );
             },
           ),

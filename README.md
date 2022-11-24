@@ -145,13 +145,13 @@ NPM     : 2106751303
 
 Kelas   : PBP-B
 
-# 💻 Perbedaaan Navigator.push dan Navigator.pushReplacement
+## 💻 Perbedaaan Navigator.push dan Navigator.pushReplacement
 
 | Navigator.push | Navigator.pushReplacement |
 | -------------- | ------------------------- |
 | Method untuk menimpa halaman sebelumnya dengan menambahkan route atau page lain di atas page saat ini. Halaman baru akan ditampilkan di atas halaman sebelumnya. Halaman sebelumnya masih dapat diakses kembali. | Sesuai dengan namanya, yaitu "pushReplacement", method ini akan mengganti route yang ada di stack navigasi dengan route baru dengan melakukan push page baru di mana page lama akan terhapus. Halaman sebelumnya tidak dapat diakses kembali.|  
 
-# 📱 Widget yang Dipakai
+## 📱 Widget yang Dipakai
 
 | No | Widget | Fungsi |
 | -- | ------------- | ------------- |
@@ -167,7 +167,7 @@ Kelas   : PBP-B
 | 10  | Padding  | Mengatur ruang antar elemen dalam pada widget |
 | 11 | Expanded  | Mengatur size child widget agar mengisi tempat yang tersedia |
 
-# 🪄 Jenis-jenis event yang ada pada Flutter 
+## 🪄 Jenis-jenis event yang ada pada Flutter 
 
 - `onChanged`, yaitu event yang terjadi ketika widget diubah.
 - `onSaved`, yaitu event yang terjadi ketika widget disimpan.
@@ -175,11 +175,11 @@ Kelas   : PBP-B
 - `onPressed`, yaitu event yang terjadi ketika widget di tekan atau *press*.
 - `onExit`, yaitu event yang terjadi ketika aplikasi ditutup.
 
-# ⚙️ Cara kerja Navigator dalam "mengganti" halaman aplikasi Flutter 
+## ⚙️ Cara kerja Navigator dalam "mengganti" halaman aplikasi Flutter 
 
 Navigator mengganti halaman dengan memanfaatkan sebuah Stack. Halaman yang ditampilkan untuk pengguna merupakan halaman yang posisinya *top of stack*. Jika ingin mengganti halaman, maka dapat memanfaatkan push untuk menimpa halaman sebelumnya atau pushReplacement untuk mengganti halaman sebelumnya. Navigator mengatur stack of route dengan menggunakan `Navigator.push` dan `Navigator.pop`. Jika ingin kembali atau pindah ke halaman sebelumnya, maka dapat dimanfaatkan operasi pop.
 
-# 📋 Implementasi Checklist
+## 📋 Implementasi Checklist
 
 ✅ Menambahkan drawer/hamburger menu pada app yang telah dibuat sebelumnya dan menambahkan tiga tombol navigasi pada drawer/hamburger.
 
@@ -260,7 +260,7 @@ class Budget {
 ```
 ✅ Membuat file `dataBudget.dart` untuk menampilkan data budget di antaranya adalah judul, nominal, dan tipe budget yang telah diinput pada form.
 
-# ✨ Implementasi Bonus
+## ✨ Implementasi Bonus
 
 ✅ Menambahkan elemen date picker pada halaman form dengan menambahkan potongan kode berikut pada file `formBudget.dart`.
 
@@ -295,3 +295,26 @@ children: Budget.budgets.map((budget) {
 ```
 
 ✅ Refactor widget Drawer ke sebuah file terpisah dengan membuat file baru, yaitu `drawer.dart`, drawer dapat dipanggil dengan potongan kode `Drawer: AppDrawer()`.
+
+# Tugas 9 : Integrasi Web Service pada Flutter
+
+## 📥 Pengambilan data JSON
+
+**Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?**
+
+➡️ Pengambilan data JSON tanpa membuat model dapat dilakukan. Caranya yaitu, data JSON akan dikirimkan sebagai HTTP Response dalam bentuk *raw data*. Pengimplementasiannya dapat dilakukan dengan menggunakan `jsonDecode(`) import dari `dart:convert`. Namun, membuat model sebelum melakukan pengambilan data JSON lebih baik karena representasi datanya lebih terstruktur dan efisien. Hal ini disebabkan karena pembuatan model memudahkan developer untuk melakukan operasi pada HTTP Response dengan mengubahnya menjadi dart object, daripada tanpa membuat model yang lebih sulit untuk melihat dan mengakses data yang diperlukan.
+
+## 📱 Widget yang Dipakai
+
+| No | Widget | Fungsi |
+| -- | ------------- | ------------- |
+| 1  | FutureBuilder | Menampilkan data yang akan diambil dari web service yang mendukung proses asinkron |
+| 2  | Drawer  | Membuat fitur navigasi menuju page lain |
+| 3  | Padding  | Mengatur ruang antar elemen dalam pada widget |
+| 4  | Row | Mengatur dan menampilkan layout widget secara horizontal |
+| 5  | ElevatedButton  | Membuat button memiliki shadow dan terlihat menonjol dibandingkan dengan elemen-elemen lainnya |
+| 6  | SizedBox  | Mengatur ukuran dan memberi jarak antar widget |
+
+## 💾 Mekanisme pengambilan data dari JSON
+
+Pertama, yang perlu dilakukan adalah membuat model class sesuai dengan response data yang akan diambil ketika melakukan pemanggilan web service. Selanjutnya, data akan di-fetch atau ambil dari web service yang nantinya akan ditampilkan dengan memanfaatkan FutureBuilder. Data yang di fetch ini, diambil melalui `HTTP GET` request yang mengambil data dari URL yang diiginkan. Sebuah response akan dikembalikan dengan memanfaatkan metode `http.get.`. Response ini akan dikonversi menjadi objek Dart yang nanti diiterasi agar dapat ditampilkan pada aplikasi.
