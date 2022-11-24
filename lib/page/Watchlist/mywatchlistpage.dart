@@ -41,10 +41,17 @@ class _MyWatchlistPageState extends State<MyWatchlistPage> {
                 itemCount: snapshot.data!.length,
                 itemBuilder: (_, index) => InkWell(
                   onTap: () {
-                    Navigator.pushNamed(
+                    Navigator.push(
                       context,
-                      "/watchlist-detail",
-                      arguments: snapshot.data![index],
+                      MaterialPageRoute(
+                        builder: (context) => WatchListDetail(
+                          title: snapshot.data![index].fields.title,
+                          releaseDate: snapshot.data![index].fields.releaseDate,
+                          rating: snapshot.data![index].fields.rating,
+                          watched: snapshot.data![index].fields.watched,
+                          review: snapshot.data![index].fields.review,
+                        )
+                      )
                     );
                   },
                   child: Container(
