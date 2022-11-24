@@ -2,7 +2,6 @@ import 'package:http/http.dart' as http;
 import 'package:counter_7/model/mywatchlist.dart';
 import 'dart:convert';
 
-
 Future<List<MyWatchList>> fetchWatchList() async {
   var url = Uri.parse(
       'https://pbp-tugas2-jihansyafakamila.herokuapp.com/mywatchlist/json/');

@@ -318,3 +318,42 @@ children: Budget.budgets.map((budget) {
 ## 💾 Mekanisme pengambilan data dari JSON
 
 Pertama, yang perlu dilakukan adalah membuat model class sesuai dengan response data yang akan diambil ketika melakukan pemanggilan web service. Selanjutnya, data akan di-fetch atau ambil dari web service yang nantinya akan ditampilkan dengan memanfaatkan FutureBuilder. Data yang di fetch ini, diambil melalui `HTTP GET` request yang mengambil data dari URL yang diiginkan. Sebuah response akan dikembalikan dengan memanfaatkan metode `http.get.`. Response ini akan dikonversi menjadi objek Dart yang nanti diiterasi agar dapat ditampilkan pada aplikasi.
+
+## ✨ Implementasi Checklist dan Bonus
+
+- Membuat 3 (tiga) folder baru dengan nama `model`, `page`, dan `utils`. Pada folder model terdapat file budget.dart dan mywatchlist.dart, dan pada folder utils terdapat file fetchwatchlistdata.dart. Di dalam folder page, dibuat lagi folder `Budget` dan `Watchlist`. Pada folder Budget berisi file dataBudget.dart dan formBudget.dart sedangkan pada folder Watchlist berisi file mywatchlistdetail.dart dan mywatchlistpage.dart. 
+
+- File fetchwatchlistdata.dart berisi potongan kode yang akan mengambil data dari URL situs web tugas mywatchlist sebelumnya. File ini juga sudah di refactor ke sebuah file terpisah untuk mengimplementasikan bonus.
+
+```Dart
+Future<List<MyWatchList>> fetchWatchList() async {
+  var url = Uri.parse(
+      'https://pbp-tugas2-jihansyafakamila.herokuapp.com/mywatchlist/json/');
+  var response = await http.get(
+    url,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "application/json",
+    },
+  );
+
+  var data = jsonDecode(utf8.decode(response.bodyBytes));
+
+  List<MyWatchList> listWatchList = [];
+  for (var d in data) {
+    if (d != null) {
+      listWatchList.add(MyWatchList.fromJson(d));
+    }
+  }
+
+  return listWatchList;
+}
+```
+
+- Membuat file baru pada folder page dengan nama mywatchlistpage.dart untuk menampilkan seluruh judul dari objek MyWatchList pada halaman My Watch List.
+
+- Membuat file baru pada folder page dengan nama mywatchlistdetail.dart untuk menampilkan halaman detail untuk setiap objek mywatchlist. Setiap detail akan menampilkan release date, rating, status, dan review.
+
+- Menambahkan checkbox dengan widget Checkbox untuk menandakan film tersebut sudah ditonton atau belum. Dengan menggunakan event handler, yaitu onChanged() akan melakukan operasi setState() untuk mengubah status ditonton pada saat checkbox ditekan.
+
+- Menambahkan warna untuk outline pada setiap mywatchlist pada halaman mywatchlist berdasarkan status ditonton dua pilihan warna untuk status yang bernilai true akan berwarna green sedangkan untuk status yang bernilai false akan bewarna red.

@@ -81,7 +81,7 @@ class _WatchListDetailState extends State<WatchListDetail> {
                   ),
                 ),
                 Text(
-                  watch.watched ? "Watched" : "Not Watched",
+                  watch.watched ? "Watched" : "Haven't Watched",
                   style: const TextStyle(
                     fontSize: 18.0,
                   ),
