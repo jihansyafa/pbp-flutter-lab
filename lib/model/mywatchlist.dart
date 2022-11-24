@@ -18,7 +18,7 @@ class MyWatchList {
     required this.review,
   });
 
-  double rating;
+  int rating;
   String releaseDate;
   String title;
   bool watched;
