@@ -18,7 +18,7 @@ class MyWatchList {
     required this.review,
   });
 
-  int rating;
+  String rating;
   String releaseDate;
   String title;
   bool watched;
@@ -28,7 +28,7 @@ class MyWatchList {
     rating: json["fields"]["rating"],
     releaseDate: json["fields"]["release_date"],
     title: json["fields"]["title"],
-    watched: json["fields"]["watched"],
+    watched: json["fields"]["watched"] == true,
     review: json["fields"]["review"],
   );
 
@@ -39,4 +39,5 @@ class MyWatchList {
     "watched": watched,
     "review": review,
   };
+  
 }
