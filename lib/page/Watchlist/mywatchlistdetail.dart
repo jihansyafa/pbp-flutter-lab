@@ -64,7 +64,7 @@ class _WatchListDetailState extends State<WatchListDetail> {
                   ),
                 ),
                 Text(
-                  "${watch.rating}/5.0",
+                  "${watch.rating}/5",
                   style: const TextStyle(
                     fontSize: 18.0,
                   ),
